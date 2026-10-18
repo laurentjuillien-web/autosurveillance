@@ -30,7 +30,7 @@
   <!-- jsPDF via CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-  <!-- Google Font -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -49,7 +49,7 @@
       margin: 0;
     }
   </style>
-<script src="/_aistudio-iframe.js?v=6634132a"></script></head>
+</head>
 <body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col antialiased selection:bg-sky-200">
 
   <!-- En-tête de navigation -->
@@ -66,22 +66,22 @@
             Autosurveillance STEP
             <span class="text-xs px-2 py-0.5 rounded-full bg-sky-900/80 text-sky-300 font-mono border border-sky-700/60 font-medium">Terrain 24h</span>
           </h1>
-          <p class="text-xs text-slate-400">Station d'Épuration • Bilan Réglementaire</p>
+          <p class="text-xs text-slate-400">Station d'Épuration • Bilan Réglementaire Terrain</p>
         </div>
       </div>
 
       <div class="flex items-center gap-2">
         <div class="hidden sm:flex items-center gap-1.5 bg-slate-800 px-2.5 py-1.5 rounded-lg border border-slate-700 text-xs text-slate-300">
-          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
           <span class="text-emerald-400 font-semibold">Partage: WhatsApp &amp; Mail</span>
         </div>
-        <button id="btnExemple" type="button" class="text-xs bg-slate-800 hover:bg-slate-700 active:bg-slate-600 text-slate-200 px-3 py-2 rounded-lg font-medium transition border border-slate-700 flex items-center gap-1.5 shadow-sm">
+        <button id="btnExemple" type="button" class="text-xs bg-slate-800 hover:bg-slate-700 active:bg-slate-600 text-slate-200 px-3 py-2 rounded-lg font-medium transition border border-slate-700 flex items-center gap-1.5 shadow-sm cursor-pointer">
           <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
           </svg>
           <span class="hidden sm:inline">Exemple</span>
         </button>
-        <button id="btnReset" type="button" class="text-xs text-rose-300 hover:text-rose-200 bg-rose-950/40 hover:bg-rose-900/50 px-2.5 py-2 rounded-lg border border-rose-800/60 transition" title="Effacer tout">
+        <button id="btnReset" type="button" class="text-xs text-rose-300 hover:text-rose-200 bg-rose-950/40 hover:bg-rose-900/50 px-2.5 py-2 rounded-lg border border-rose-800/60 transition cursor-pointer" title="Effacer tout">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
           </svg>
@@ -103,7 +103,7 @@
             1
           </div>
           <h2 class="text-base sm:text-lg font-bold text-slate-900">
-            En-tête & Informations Générales
+            En-tête &amp; Informations Générales
           </h2>
         </div>
 
@@ -139,7 +139,7 @@
             <p id="err-dateAutosurveillance" class="text-xs text-rose-500 font-medium mt-1 hidden"></p>
           </div>
 
-          <!-- Champs additionnels terrain très pratiques -->
+          <!-- Technicien / Opérateur -->
           <div>
             <label for="technicienNom" class="block text-xs font-semibold text-slate-600 mb-1.5">
               Technicien / Opérateur de traitement <span class="text-slate-400">(optionnel)</span>
@@ -148,32 +148,33 @@
               type="text"
               id="technicienNom"
               name="technicienNom"
-              placeholder="ex: L. Juillien"
-              class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 bg-white"
+              placeholder="ex: Laurent Juillien"
+              class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 bg-slate-50/30"
             >
           </div>
 
+          <!-- Conditions Météo -->
           <div>
             <label for="meteo" class="block text-xs font-semibold text-slate-600 mb-1.5">
-              Conditions météo 24h <span class="text-slate-400">(optionnel)</span>
+              Conditions Météorologiques <span class="text-slate-400">(optionnel)</span>
             </label>
             <select
               id="meteo"
               name="meteo"
-              class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 bg-white"
+              class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 bg-slate-50/30"
             >
-              <option value="">Sélectionner...</option>
-              <option value="Temps sec">Temps sec / Ensoleillé</option>
-              <option value="Pluvieux">Pluvieux / Humide</option>
-              <option value="Fortes précipitations">Fortes précipitations / Orage</option>
-              <option value="Froid / Gel">Froid / Période de gel</option>
+              <option value="Temps sec">Temps sec</option>
+              <option value="Pluie modérée">Pluie modérée</option>
+              <option value="Forte pluie / Orage">Forte pluie / Orage</option>
+              <option value="Gel / Neige">Gel / Neige</option>
+              <option value="Vent fort">Vent fort</option>
             </select>
           </div>
         </div>
       </section>
 
-      <!-- 2. Bilan Entrée & 3. Bilan Sortie en colonnes / cartes distinctes -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Grille des Prélèvements 24H (Entrée et Sortie) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
         <!-- 2. BILAN ENTRÉE -->
         <section class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border-2 border-sky-200 flex flex-col justify-between">
@@ -268,14 +269,14 @@
                 <p id="err-entreeDebit" class="text-xs text-rose-500 font-medium mt-1 hidden"></p>
               </div>
 
-              <!-- Capture Photo Entrée -->
+              <!-- Capture Photo Entrée avec caméra arrière forcée (capture="environment") -->
               <div class="pt-2">
                 <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center justify-between">
                   <span>Photo Préleveur Entrée <span class="text-rose-500">*</span></span>
-                  <span class="text-[11px] text-sky-600 font-medium">Caméra ou Fichier</span>
+                  <span class="text-[11px] text-sky-600 font-medium">Caméra arrière directe</span>
                 </label>
 
-                <!-- Input File avec capture="environment" comme exigé -->
+                <!-- Input File avec attributs obligatoires -->
                 <input
                   type="file"
                   id="entreePhotoInput"
@@ -294,7 +295,7 @@
                       </svg>
                     </div>
                     <p class="text-xs font-bold text-sky-900">Prendre photo Entrée</p>
-                    <p class="text-[11px] text-slate-500">Appareil photo smartphone ou galerie</p>
+                    <p class="text-[11px] text-slate-500">Ouvre directement la caméra arrière</p>
                   </div>
 
                   <!-- Aperçu miniature -->
@@ -410,13 +411,14 @@
                 <p id="err-sortieDebit" class="text-xs text-rose-500 font-medium mt-1 hidden"></p>
               </div>
 
-              <!-- Capture Photo Sortie -->
+              <!-- Capture Photo Sortie avec caméra arrière forcée (capture="environment") -->
               <div class="pt-2">
                 <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center justify-between">
                   <span>Photo Préleveur Sortie <span class="text-rose-500">*</span></span>
-                  <span class="text-[11px] text-emerald-600 font-medium">Caméra ou Fichier</span>
+                  <span class="text-[11px] text-emerald-600 font-medium">Caméra arrière directe</span>
                 </label>
 
+                <!-- Input File avec attributs obligatoires -->
                 <input
                   type="file"
                   id="sortiePhotoInput"
@@ -434,7 +436,7 @@
                       </svg>
                     </div>
                     <p class="text-xs font-bold text-emerald-950">Prendre photo Sortie</p>
-                    <p class="text-[11px] text-slate-500">Appareil photo smartphone ou galerie</p>
+                    <p class="text-[11px] text-slate-500">Ouvre directement la caméra arrière</p>
                   </div>
 
                   <div id="sortiePreviewContainer" class="hidden w-full h-full flex flex-col items-center">
@@ -458,7 +460,7 @@
 
       </div>
 
-      <!-- Observations complémentaires (Optionnel mais très utile pour un rapport technique de STEP) -->
+      <!-- Observations complémentaires -->
       <section class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-slate-200">
         <label for="observations" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center justify-between">
           <span>Remarques / Événements d'exploitation <span class="text-slate-400 font-normal">(optionnel)</span></span>
@@ -473,7 +475,7 @@
         ></textarea>
       </section>
 
-      <!-- 4. Génération du Rapport PDF & Options de Partage (WhatsApp & E-mail) -->
+      <!-- 4. GÉNÉRATION DU RAPPORT PDF & OPTIONS DE PARTAGE -->
       <section class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-2xl p-5 sm:p-6 shadow-xl border border-slate-700">
         <div class="flex items-center gap-2.5 pb-3 mb-4 border-b border-slate-700">
           <div class="w-7 h-7 rounded-lg bg-emerald-500 text-white flex items-center justify-center font-bold text-sm">
@@ -505,7 +507,7 @@
                     <span class="text-[10px] px-1.5 py-0.2 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 font-semibold">Direct</span>
                   </h4>
                   <p class="text-[11px] text-slate-300 mt-0.5 leading-snug">
-                    Synthèse structurée prête à l'envoi + transmission du fichier PDF sur mobile ou WhatsApp Web.
+                    Synthèse structurée prête à l'envoi + transmission du fichier PDF sur smartphone ou WhatsApp Web.
                   </p>
                 </div>
               </div>
@@ -532,7 +534,7 @@
             <div class="pt-1">
               <label for="destinataireEmail" class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1 flex items-center justify-between">
                 <span>Adresse e-mail du destinataire <span class="text-slate-400 font-normal lowercase">(optionnel)</span></span>
-                <span class="text-[10px] text-slate-400">ex: exploitation, régie, agence</span>
+                <span class="text-[10px] text-slate-400">ex: exploitation, régie, agence de l'eau</span>
               </label>
               <input
                 type="email"
@@ -554,7 +556,7 @@
             <ul id="validationList" class="list-disc list-inside space-y-0.5 text-rose-300 pl-1"></ul>
           </div>
 
-          <!-- Bouton de validation ergonomique terrain -->
+          <!-- Bouton principal de génération -->
           <div class="pt-2">
             <button
               type="submit"
@@ -576,7 +578,44 @@
               <span>•</span>
               <span class="text-sky-300">✓ Envoi e-mail préparé</span>
               <span>•</span>
-              <span class="text-slate-300">✓ Téléchargement local</span>
+              <span class="text-slate-300">✓ Téléchargement direct</span>
+            </div>
+          </div>
+
+          <!-- Panneau d'actions directes WhatsApp / Email / Téléchargement dans la Section 4 -->
+          <div id="section4SharePanel" class="hidden p-3.5 rounded-xl bg-slate-900 border border-emerald-500/60 space-y-2.5">
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-emerald-400 font-bold flex items-center gap-1.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Rapport PDF prêt pour l'envoi :</span>
+              </span>
+              <span id="section4FileName" class="font-mono text-slate-300 truncate max-w-[200px]"></span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+              <button
+                type="button"
+                id="section4BtnWhatsApp"
+                class="py-2.5 px-3 bg-[#25D366] hover:bg-[#20ba59] active:bg-[#1caa4f] text-white font-bold rounded-xl flex items-center justify-center gap-2 text-xs transition cursor-pointer shadow-md"
+              >
+                <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.27-2.42 5.82-1.55 1.56-3.62 2.42-5.82 2.42-1.48 0-2.93-.39-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.83-1.32-1.27-2.86-1.27-4.38 0-4.54 3.7-8.24 8.24-8.24zm-3.62 4.75c-.2 0-.44.08-.66.32-.22.24-.86.84-.86 2.05s.88 2.38 1 2.55c.12.16 1.7 2.6 4.13 3.65.58.25 1.03.4 1.38.51.58.19 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.15.2-.57.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28-.24-.12-1.44-.71-1.66-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.19-.71-.63-1.19-1.41-1.33-1.65-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.48-.39-.41-.54-.42h-.47z"/></svg>
+                <span>Envoyer via WhatsApp</span>
+              </button>
+              <button
+                type="button"
+                id="section4BtnEmail"
+                class="py-2.5 px-3 bg-sky-600 hover:bg-sky-500 active:bg-sky-700 text-white font-bold rounded-xl flex items-center justify-center gap-2 text-xs transition cursor-pointer shadow-md"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                <span>Envoyer par Email</span>
+              </button>
+              <button
+                type="button"
+                id="section4BtnDownload"
+                class="py-2.5 px-3 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl flex items-center justify-center gap-2 text-xs transition cursor-pointer border border-slate-700 shadow-md"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                <span>Télécharger le PDF</span>
+              </button>
             </div>
           </div>
         </div>
@@ -623,15 +662,15 @@
           <div class="flex flex-wrap items-center gap-2">
             <button id="modalBtnWhatsApp" type="button" class="flex-1 sm:flex-initial py-2.5 px-4 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold rounded-xl flex items-center justify-center gap-2 text-xs transition cursor-pointer shadow-md">
               <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.27-2.42 5.82-1.55 1.56-3.62 2.42-5.82 2.42-1.48 0-2.93-.39-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.83-1.32-1.27-2.86-1.27-4.38 0-4.54 3.7-8.24 8.24-8.24zm-3.62 4.75c-.2 0-.44.08-.66.32-.22.24-.86.84-.86 2.05s.88 2.38 1 2.55c.12.16 1.7 2.6 4.13 3.65.58.25 1.03.4 1.38.51.58.19 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.15.2-.57.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28-.24-.12-1.44-.71-1.66-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.19-.71-.63-1.19-1.41-1.33-1.65-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.48-.39-.41-.54-.42h-.47z"/></svg>
-              <span>WhatsApp</span>
+              <span>Envoyer via WhatsApp</span>
             </button>
             <button id="modalBtnEmail" type="button" class="flex-1 sm:flex-initial py-2.5 px-4 bg-sky-600 hover:bg-sky-500 text-white font-bold rounded-xl flex items-center justify-center gap-2 text-xs transition cursor-pointer shadow-md">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-              <span>E-mail</span>
+              <span>Envoyer par Email</span>
             </button>
             <button id="modalBtnCopy" type="button" class="py-2.5 px-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium rounded-xl flex items-center justify-center gap-1.5 text-xs transition border border-slate-700 cursor-pointer">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-              <span id="modalCopyText">Copier texte</span>
+              <span id="modalCopyText">Copier la synthèse</span>
             </button>
           </div>
         </div>
@@ -652,12 +691,20 @@
         <iframe id="modalPdfFrame" src="" class="w-full h-full rounded-xl border border-slate-300 bg-white shadow-inner"></iframe>
       </div>
 
-      <!-- Actions -->
+      <!-- Actions bas de modale -->
       <div class="p-4 bg-white border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
-        <div class="flex items-center gap-2 w-full sm:w-auto">
+        <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
           <button id="modalBtnDownload" type="button" class="flex-1 sm:flex-initial py-2.5 px-4 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl flex items-center justify-center gap-2 text-xs transition shadow-sm cursor-pointer">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-            Re-télécharger le PDF
+            Télécharger le PDF
+          </button>
+          <button type="button" id="modalBtnFooterWhatsApp" class="flex-1 sm:flex-initial py-2.5 px-4 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold rounded-xl flex items-center justify-center gap-2 text-xs transition shadow-sm cursor-pointer">
+            <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.27-2.42 5.82-1.55 1.56-3.62 2.42-5.82 2.42-1.48 0-2.93-.39-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.83-1.32-1.27-2.86-1.27-4.38 0-4.54 3.7-8.24 8.24-8.24zm-3.62 4.75c-.2 0-.44.08-.66.32-.22.24-.86.84-.86 2.05s.88 2.38 1 2.55c.12.16 1.7 2.6 4.13 3.65.58.25 1.03.4 1.38.51.58.19 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.15.2-.57.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28-.24-.12-1.44-.71-1.66-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.19-.71-.63-1.19-1.41-1.33-1.65-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.48-.39-.41-.54-.42h-.47z"/></svg>
+            <span>WhatsApp</span>
+          </button>
+          <button type="button" id="modalBtnFooterEmail" class="flex-1 sm:flex-initial py-2.5 px-4 bg-sky-600 hover:bg-sky-500 text-white font-bold rounded-xl flex items-center justify-center gap-2 text-xs transition shadow-sm cursor-pointer">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <span>Email</span>
           </button>
         </div>
         <button id="modalBtnBottomClose" type="button" class="text-xs text-slate-500 hover:text-slate-800 font-medium py-1 px-3 cursor-pointer">
@@ -666,7 +713,6 @@
       </div>
     </div>
   </div>
-
 
   <!-- Pied de page avec mention obligatoire "Créé par Laurent Juillien" -->
   <footer class="bg-white border-t border-slate-200 mt-auto py-5 px-4">
@@ -690,6 +736,7 @@
         sortiePhoto: null,
         lastBlob: null,
         lastFileName: '',
+        lastPdfRes: null
       };
 
       // Éléments DOM
@@ -732,12 +779,23 @@
       const validationBanner = document.getElementById('validationBanner');
       const validationList = document.getElementById('validationList');
 
+      const section4SharePanel = document.getElementById('section4SharePanel');
+      const section4FileName = document.getElementById('section4FileName');
+      const section4BtnWhatsApp = document.getElementById('section4BtnWhatsApp');
+      const section4BtnEmail = document.getElementById('section4BtnEmail');
+      const section4BtnDownload = document.getElementById('section4BtnDownload');
+
       const successModal = document.getElementById('successModal');
       const modalFileName = document.getElementById('modalFileName');
-      const modalEmail = document.getElementById('modalEmail');
-      const modalBtnMail = document.getElementById('modalBtnMail');
-      const modalBtnDownload = document.getElementById('modalBtnDownload');
       const modalBtnClose = document.getElementById('modalBtnClose');
+      const modalBtnBottomClose = document.getElementById('modalBtnBottomClose');
+      const modalBtnDownload = document.getElementById('modalBtnDownload');
+      const modalBtnWhatsApp = document.getElementById('modalBtnWhatsApp');
+      const modalBtnEmail = document.getElementById('modalBtnEmail');
+      const modalBtnCopy = document.getElementById('modalBtnCopy');
+      const modalCopyText = document.getElementById('modalCopyText');
+      const modalBtnFooterWhatsApp = document.getElementById('modalBtnFooterWhatsApp');
+      const modalBtnFooterEmail = document.getElementById('modalBtnFooterEmail');
 
       const btnExemple = document.getElementById('btnExemple');
       const btnReset = document.getElementById('btnReset');
@@ -748,7 +806,7 @@
       entreeDate.value = today;
       sortieDate.value = today;
 
-      // Heure courante par défaut arrondie
+      // Heure courante par défaut
       const now = new Date();
       const currentHours = String(now.getHours()).padStart(2, '0');
       const currentMins = String(Math.floor(now.getMinutes() / 5) * 5).padStart(2, '0');
@@ -793,7 +851,7 @@
 
       // Gestion Photo Entrée
       entreePhotoBox.addEventListener('click', function(e) {
-        if (e.target === btnDeleteEntreePhoto) return;
+        if (e.target === btnDeleteEntreePhoto || btnDeleteEntreePhoto.contains(e.target)) return;
         entreePhotoInput.click();
       });
 
@@ -827,7 +885,7 @@
 
       // Gestion Photo Sortie
       sortiePhotoBox.addEventListener('click', function(e) {
-        if (e.target === btnDeleteSortiePhoto) return;
+        if (e.target === btnDeleteSortiePhoto || btnDeleteSortiePhoto.contains(e.target)) return;
         sortiePhotoInput.click();
       });
 
@@ -859,7 +917,7 @@
         sortiePhotoInput.click();
       });
 
-      // Gestion des erreurs
+      // Gestion des erreurs de formulaire
       function showError(fieldId, message) {
         const errEl = document.getElementById('err-' + fieldId);
         if (errEl) {
@@ -892,7 +950,7 @@
         }
       });
 
-      // Validation stricte
+      // Validation stricte du formulaire terrain
       function validateForm() {
         const errors = [];
         validationBanner.classList.add('hidden');
@@ -931,7 +989,7 @@
         }
         if (!state.entreePhoto) {
           showError('entreePhoto', 'Photo du préleveur Entrée obligatoire');
-          errors.push("Entrée : Photo du préleveur / échantillon");
+          errors.push("Entrée : Photo du préleveur / flacons");
         }
 
         // Sortie
@@ -953,7 +1011,7 @@
         }
         if (!state.sortiePhoto) {
           showError('sortiePhoto', 'Photo du préleveur Sortie obligatoire');
-          errors.push("Sortie : Photo du préleveur / échantillon");
+          errors.push("Sortie : Photo du préleveur / rejet");
         }
 
         if (errors.length > 0) {
@@ -969,195 +1027,6 @@
 
         return true;
       }
-
-      // Génération du PDF avec jsPDF
-      async function buildPdf() {
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF({
-          orientation: 'portrait',
-          unit: 'mm',
-          format: 'a4',
-        });
-
-        const pageWidth = 210;
-        const pageHeight = 297;
-        const margin = 14;
-        const contentWidth = pageWidth - margin * 2; // 182mm
-
-        const primary = [15, 76, 129];
-        const secondary = [2, 132, 199];
-        const entreeColor = [3, 105, 161];
-        const sortieColor = [5, 150, 105];
-        const textSlate = [30, 41, 59];
-        const muted = [100, 116, 139];
-
-        // En-tête officiel
-        doc.setFillColor(primary[0], primary[1], primary[2]);
-        doc.rect(margin, 12, contentWidth, 22, 'F');
-        doc.setFillColor(secondary[0], secondary[1], secondary[2]);
-        doc.rect(margin, 34, contentWidth, 2, 'F');
-
-        doc.setTextColor(255, 255, 255);
-        doc.setFont('helvetica', 'bold');
-        doc.setFontSize(14);
-        doc.text("BILAN D'AUTOSURVEILLANCE 24H", margin + 6, 21);
-
-        doc.setFont('helvetica', 'normal');
-        doc.setFontSize(9);
-        doc.text("STATION D'ÉPURATION (STEP) — CONTRÔLE RÉGLEMENTAIRE TERRAIN", margin + 6, 28);
-
-        const nowFormatted = new Date().toLocaleDateString('fr-FR');
-        doc.setFontSize(8);
-        doc.text(`Réf : AS-${dateAutosurveillance.value.replace(/-/g, '')}`, pageWidth - margin - 6, 21, { align: 'right' });
-        doc.text(`Édité le : ${nowFormatted} ${new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}`, pageWidth - margin - 6, 28, { align: 'right' });
-
-        let curY = 42;
-
-        // Fiche Station
-        doc.setFillColor(248, 250, 252);
-        doc.setDrawColor(226, 232, 240);
-        doc.roundedRect(margin, curY, contentWidth, 20, 2, 2, 'FD');
-
-        doc.setFont('helvetica', 'bold');
-        doc.setFontSize(9);
-        doc.setTextColor(primary[0], primary[1], primary[2]);
-        doc.text("STATION D'ÉPURATION :", margin + 4, curY + 7);
-
-        doc.setFont('helvetica', 'bold');
-        doc.setFontSize(12);
-        doc.setTextColor(textSlate[0], textSlate[1], textSlate[2]);
-        doc.text(nomStep.value.toUpperCase(), margin + 48, curY + 7);
-
-        doc.setFont('helvetica', 'bold');
-        doc.setFontSize(8.5);
-        doc.setTextColor(muted[0], muted[1], muted[2]);
-        doc.text("Date du bilan :", margin + 4, curY + 14);
-        doc.setTextColor(textSlate[0], textSlate[1], textSlate[2]);
-        doc.text(dateAutosurveillance.value, margin + 28, curY + 14);
-
-        if (technicienNom.value) {
-          doc.setTextColor(muted[0], muted[1], muted[2]);
-          doc.setFont('helvetica', 'normal');
-          doc.text("Technicien :", margin + 85, curY + 14);
-          doc.setTextColor(textSlate[0], textSlate[1], textSlate[2]);
-          doc.setFont('helvetica', 'bold');
-          doc.text(technicienNom.value, margin + 104, curY + 14);
-        }
-
-        if (meteo.value) {
-          doc.setTextColor(muted[0], muted[1], muted[2]);
-          doc.setFont('helvetica', 'normal');
-          doc.text("Météo :", margin + 140, curY + 14);
-          doc.setTextColor(textSlate[0], textSlate[1], textSlate[2]);
-          doc.setFont('helvetica', 'bold');
-          doc.text(meteo.value, margin + 152, curY + 14);
-        }
-
-        curY += 26;
-
-        // Blocs Entrée & Sortie
-        const colWidth = (contentWidth - 6) / 2;
-        const colEntreeX = margin;
-        const colSortieX = margin + colWidth + 6;
-        const blockHeight = 44;
-
-        // Entrée
-        doc.setFillColor(240, 249, 255);
-        doc.setDrawColor(186, 230, 253);
-        doc.roundedRect(colEntreeX, curY, colWidth, blockHeight, 2, 2, 'FD');
-
-        doc.setFillColor(entreeColor[0], entreeColor[1], entreeColor[2]);
-        doc.roundedRect(colEntreeX, curY, colWidth, 7, 2, 2, 'F');
-        doc.rect(colEntreeX, curY + 3, colWidth, 4, 'F');
-        doc.setTextColor(255, 255, 255);
-        doc.setFont('helvetica', 'bold');
-        doc.setFontSize(9.5);
-        doc.text("BILAN ENTRÉE (Eaux Brutes)", colEntreeX + 4, curY + 5);
-
-        const rowsEntree = [
-          { l: "Date prélèvement", v: entreeDate.value },
-          { l: "Heure relève", v: entreeHeure.value },
-          { l: "Température préleveur", v: `${entreeTemperature.value} °C`, s: (parseFloat(entreeTemperature.value) >= 2 && parseFloat(entreeTemperature.value) <= 5) ? "Conforme (2-5°C)" : "Hors cible (2-5°C)" },
-          { l: "Débit écoulé 24h", v: `${Number(entreeDebit.value).toLocaleString('fr-FR')} m³`, h: true }
-        ];
-
-        let rY = curY + 13;
-        rowsEntree.forEach(r => {
-          doc.setTextColor(muted[0], muted[1], muted[2]);
-          doc.setFont('helvetica', 'normal');
-          doc.setFontSize(8);
-          doc.text(r.l, colEntreeX + 4, rY);
-          doc.setTextColor(r.h ? entreeColor[0] : textSlate[0], r.h ? entreeColor[1] : textSlate[1], r.h ? entreeColor[2] : textSlate[2]);
-          doc.setFont('helvetica', 'bold');
-          doc.setFontSize(r.h ? 10 : 8.5);
-          doc.text(r.v, colEntreeX + colWidth - 4, rY, { align: 'right' });
-          if (r.s) {
-            doc.setFontSize(6.5);
-            doc.setTextColor(muted[0], muted[1], muted[2]);
-            doc.text(r.s, colEntreeX + colWidth - 4, rY + 3.2, { align: 'right' });
-          }
-          rY += 8.2;
-        });
-
-        // Sortie
-        doc.setFillColor(236, 253, 245);
-        doc.setDrawColor(167, 243, 208);
-        doc.roundedRect(colSortieX, curY, colWidth, blockHeight, 2, 2, 'FD');
-
-        doc.setFillColor(sortieColor[0], sortieColor[1], sortieColor[2]);
-        doc.roundedRect(colSortieX, curY, colWidth, 7, 2, 2, 'F');
-        doc.rect(colSortieX, curY + 3, colWidth, 4, 'F');
-        doc.setTextColor(255, 255, 255);
-        doc.setFont('helvetica', 'bold');
-        doc.setFontSize(9.5);
-        doc.text("BILAN SORTIE (Rejet Traité)", colSortieX + 4, curY + 5);
-
-        const rowsSortie = [
-          { l: "Date prélèvement", v: sortieDate.value },
-          { l: "Heure relève", v: sortieHeure.value },
-          { l: "Température préleveur", v: `${sortieTemperature.value} °C`, s: (parseFloat(sortieTemperature.value) >= 2 && parseFloat(sortieTemperature.value) <= 5) ? "Conforme (2-5°C)" : "Hors cible (2-5°C)" },
-          { l: "Débit écoulé 24h", v: `${Number(sortieDebit.value).toLocaleString('fr-FR')} m³`, h: true }
-        ];
-
-        rY = curY + 13;
-        rowsSortie.forEach(r => {
-          doc.setTextColor(muted[0], muted[1], muted[2]);
-          doc.setFont('helvetica', 'normal');
-          doc.setFontSize(8);
-          doc.text(r.l, colSortieX + 4, rY);
-          doc.setTextColor(r.h ? sortieColor[0] : textSlate[0], r.h ? sortieColor[1] : textSlate[1], r.h ? sortieColor[2] : textSlate[2]);
-          doc.setFont('helvetica', 'bold');
-          doc.setFontSize(r.h ? 10 : 8.5);
-          doc.text(r.v, colSortieX + colWidth - 4, rY, { align: 'right' });
-          if (r.s) {
-            doc.setFontSize(6.5);
-            doc.setTextColor(muted[0], muted[1], muted[2]);
-            doc.text(r.s, colSortieX + colWidth - 4, rY + 3.2, { align: 'right' });
-          }
-          rY += 8.2;
-        });
-
-        curY += blockHeight + 6;
-
-        // Bilan Volumétrique
-        const qIn = parseFloat(entreeDebit.value);
-        const qOut = parseFloat(sortieDebit.value);
-        let volumetrie = "Calcul volumétrique : Enregistrement conforme 24h.";
-        if (qIn > 0 && !isNaN(qOut)) {
-          const diff = qOut - qIn;
-          const ratio = ((qOut / qIn) * 100).toFixed(1);
-          volumetrie = `Calcul volumétrique : Débit Sortie / Débit Entrée = ${ratio}% (Écart : ${diff > 0 ? '+' : ''}${diff.toFixed(1)} m³)`;
-        }
-
-        doc.setFillColor(241, 245, 249);
-        doc.setDrawColor(203, 213, 225);
-        doc.roundedRect(margin, curY, contentWidth, 9, 1.5, 1.5, 'FD');
-        doc.setTextColor(primary[0], primary[1], primary[2]);
-        doc.setFont('helvetica', 'bold');
-        doc.setFontSize(8);
-        doc.text(volumetrie, margin + 4, curY + 5.5);
-
-        curY += 14;
 
       // Helper pour charger et préparer l'image dans un canvas avec ratio exact
       function prepareCanvasImage(dataUrl) {
@@ -1194,7 +1063,6 @@
           compress: true
         });
 
-        // Préparer les images en parallèle
         const [entreeImg, sortieImg] = await Promise.all([
           prepareCanvasImage(state.entreePhoto),
           prepareCanvasImage(state.sortiePhoto)
@@ -1268,10 +1136,10 @@
         if (meteo.value) {
           doc.setTextColor(muted[0], muted[1], muted[2]);
           doc.setFont('helvetica', 'normal');
-          doc.text("Météo 24h :", margin + 140, curY + 12.5);
+          doc.text("Météo :", margin + 145, curY + 12.5);
           doc.setTextColor(textSlate[0], textSlate[1], textSlate[2]);
           doc.setFont('helvetica', 'bold');
-          doc.text(meteo.value, margin + 156, curY + 12.5);
+          doc.text(meteo.value, margin + 158, curY + 12.5);
         }
 
         curY += 21;
@@ -1280,7 +1148,7 @@
         const colWidth = (contentWidth - 6) / 2;
         const colEntreeX = margin;
         const colSortieX = margin + colWidth + 6;
-        const blockHeight = 40;
+        const blockHeight = 44;
 
         // Entrée
         doc.setFillColor(240, 249, 255);
@@ -1288,36 +1156,36 @@
         doc.roundedRect(colEntreeX, curY, colWidth, blockHeight, 2, 2, 'FD');
 
         doc.setFillColor(entreeColor[0], entreeColor[1], entreeColor[2]);
-        doc.roundedRect(colEntreeX, curY, colWidth, 6.5, 2, 2, 'F');
-        doc.rect(colEntreeX, curY + 3, colWidth, 3.5, 'F');
+        doc.roundedRect(colEntreeX, curY, colWidth, 7, 2, 2, 'F');
+        doc.rect(colEntreeX, curY + 3, colWidth, 4, 'F');
         doc.setTextColor(255, 255, 255);
         doc.setFont('helvetica', 'bold');
-        doc.setFontSize(9);
-        doc.text("BILAN ENTRÉE (Eaux Brutes)", colEntreeX + 4, curY + 4.8);
+        doc.setFontSize(9.5);
+        doc.text("BILAN ENTRÉE (Eaux Brutes)", colEntreeX + 4, curY + 5);
 
         const rowsEntree = [
-          { l: "Date du prélèvement", v: entreeDate.value },
-          { l: "Heure de relève", v: entreeHeure.value },
-          { l: "Température préleveur", v: `${entreeTemperature.value} °C`, s: (parseFloat(entreeTemperature.value) >= 2 && parseFloat(entreeTemperature.value) <= 5) ? "Conforme [2°C - 5°C]" : "Hors cible [2°C - 5°C]" },
-          { l: "Débit écoulé sur 24h", v: `${Number(entreeDebit.value).toLocaleString('fr-FR')} m³`, h: true }
+          { l: "Date prélèvement", v: entreeDate.value },
+          { l: "Heure relève", v: entreeHeure.value },
+          { l: "Température préleveur", v: `${entreeTemperature.value} °C`, s: (parseFloat(entreeTemperature.value) >= 2 && parseFloat(entreeTemperature.value) <= 5) ? "Conforme (2-5°C)" : "Hors cible (2-5°C)" },
+          { l: "Débit écoulé 24h", v: `${Number(entreeDebit.value).toLocaleString('fr-FR')} m³`, h: true }
         ];
 
-        let rY = curY + 12;
+        let rY = curY + 13;
         rowsEntree.forEach(r => {
           doc.setTextColor(muted[0], muted[1], muted[2]);
           doc.setFont('helvetica', 'normal');
-          doc.setFontSize(7.5);
+          doc.setFontSize(8);
           doc.text(r.l, colEntreeX + 4, rY);
           doc.setTextColor(r.h ? entreeColor[0] : textSlate[0], r.h ? entreeColor[1] : textSlate[1], r.h ? entreeColor[2] : textSlate[2]);
           doc.setFont('helvetica', 'bold');
-          doc.setFontSize(r.h ? 9.5 : 8);
+          doc.setFontSize(r.h ? 10 : 8.5);
           doc.text(r.v, colEntreeX + colWidth - 4, rY, { align: 'right' });
           if (r.s) {
-            doc.setFontSize(6);
+            doc.setFontSize(6.5);
             doc.setTextColor(muted[0], muted[1], muted[2]);
-            doc.text(r.s, colEntreeX + colWidth - 4, rY + 3, { align: 'right' });
+            doc.text(r.s, colEntreeX + colWidth - 4, rY + 3.2, { align: 'right' });
           }
-          rY += 7.5;
+          rY += 7.8;
         });
 
         // Sortie
@@ -1326,48 +1194,48 @@
         doc.roundedRect(colSortieX, curY, colWidth, blockHeight, 2, 2, 'FD');
 
         doc.setFillColor(sortieColor[0], sortieColor[1], sortieColor[2]);
-        doc.roundedRect(colSortieX, curY, colWidth, 6.5, 2, 2, 'F');
-        doc.rect(colSortieX, curY + 3, colWidth, 3.5, 'F');
+        doc.roundedRect(colSortieX, curY, colWidth, 7, 2, 2, 'F');
+        doc.rect(colSortieX, curY + 3, colWidth, 4, 'F');
         doc.setTextColor(255, 255, 255);
         doc.setFont('helvetica', 'bold');
-        doc.setFontSize(9);
-        doc.text("BILAN SORTIE (Rejet Traité)", colSortieX + 4, curY + 4.8);
+        doc.setFontSize(9.5);
+        doc.text("BILAN SORTIE (Rejet Traité)", colSortieX + 4, curY + 5);
 
         const rowsSortie = [
-          { l: "Date du prélèvement", v: sortieDate.value },
-          { l: "Heure de relève", v: sortieHeure.value },
-          { l: "Température préleveur", v: `${sortieTemperature.value} °C`, s: (parseFloat(sortieTemperature.value) >= 2 && parseFloat(sortieTemperature.value) <= 5) ? "Conforme [2°C - 5°C]" : "Hors cible [2°C - 5°C]" },
-          { l: "Débit écoulé sur 24h", v: `${Number(sortieDebit.value).toLocaleString('fr-FR')} m³`, h: true }
+          { l: "Date prélèvement", v: sortieDate.value },
+          { l: "Heure relève", v: sortieHeure.value },
+          { l: "Température préleveur", v: `${sortieTemperature.value} °C`, s: (parseFloat(sortieTemperature.value) >= 2 && parseFloat(sortieTemperature.value) <= 5) ? "Conforme (2-5°C)" : "Hors cible (2-5°C)" },
+          { l: "Débit écoulé 24h", v: `${Number(sortieDebit.value).toLocaleString('fr-FR')} m³`, h: true }
         ];
 
-        rY = curY + 12;
+        rY = curY + 13;
         rowsSortie.forEach(r => {
           doc.setTextColor(muted[0], muted[1], muted[2]);
           doc.setFont('helvetica', 'normal');
-          doc.setFontSize(7.5);
+          doc.setFontSize(8);
           doc.text(r.l, colSortieX + 4, rY);
           doc.setTextColor(r.h ? sortieColor[0] : textSlate[0], r.h ? sortieColor[1] : textSlate[1], r.h ? sortieColor[2] : textSlate[2]);
           doc.setFont('helvetica', 'bold');
-          doc.setFontSize(r.h ? 9.5 : 8);
+          doc.setFontSize(r.h ? 10 : 8.5);
           doc.text(r.v, colSortieX + colWidth - 4, rY, { align: 'right' });
           if (r.s) {
-            doc.setFontSize(6);
+            doc.setFontSize(6.5);
             doc.setTextColor(muted[0], muted[1], muted[2]);
-            doc.text(r.s, colSortieX + colWidth - 4, rY + 3, { align: 'right' });
+            doc.text(r.s, colSortieX + colWidth - 4, rY + 3.2, { align: 'right' });
           }
-          rY += 7.5;
+          rY += 7.8;
         });
 
-        curY += blockHeight + 4;
+        curY += blockHeight + 5;
 
         // Bilan Volumétrique
         const qIn = parseFloat(entreeDebit.value);
         const qOut = parseFloat(sortieDebit.value);
-        let volumetrie = "Calcul volumétrique : Enregistrements continus conformes.";
+        let volumetrie = "Calcul volumétrique : Enregistrement conforme 24h.";
         if (qIn > 0 && !isNaN(qOut)) {
           const diff = qOut - qIn;
           const ratio = ((qOut / qIn) * 100).toFixed(1);
-          volumetrie = `Ratio Débit Sortie / Entrée = ${ratio}% (Écart hydraulique : ${diff > 0 ? '+' : ''}${diff.toFixed(1)} m³)`;
+          volumetrie = `Calcul volumétrique : Débit Sortie / Débit Entrée = ${ratio}% (Écart : ${diff > 0 ? '+' : ''}${diff.toFixed(1)} m³)`;
         }
 
         doc.setFillColor(241, 245, 249);
@@ -1375,37 +1243,32 @@
         doc.roundedRect(margin, curY, contentWidth, 8, 1.5, 1.5, 'FD');
         doc.setTextColor(primary[0], primary[1], primary[2]);
         doc.setFont('helvetica', 'bold');
-        doc.setFontSize(7.5);
+        doc.setFontSize(8);
         doc.text(volumetrie, margin + 4, curY + 5.2);
 
         curY += 12;
 
-        // Photos Justificatives GRAND FORMAT
-        doc.setFont('helvetica', 'bold');
-        doc.setFontSize(9.5);
-        doc.setTextColor(primary[0], primary[1], primary[2]);
-        doc.text("PHOTOGRAPHIES DES PRÉLÈVEMENTS ET PRÉLEVEURS DE TERRAIN", margin, curY);
+        // Section Photographies avec horodatage
+        const photoHeight = 100;
+        const photoWidth = (contentWidth - 6) / 2;
 
-        curY += 3.5;
-        const photoWidth = (contentWidth - 6) / 2; // 90mm
-        const photoHeight = 92; // 92mm
-
-        // Cadre Photo Entrée
-        doc.setDrawColor(186, 230, 253);
-        doc.setFillColor(250, 250, 250);
+        // Cadre Entrée
+        doc.setFillColor(255, 255, 255);
+        doc.setDrawColor(203, 213, 225);
         doc.roundedRect(colEntreeX, curY, photoWidth, photoHeight, 2, 2, 'FD');
+
         doc.setFillColor(entreeColor[0], entreeColor[1], entreeColor[2]);
         doc.roundedRect(colEntreeX, curY, photoWidth, 6, 2, 2, 'F');
-        doc.rect(colEntreeX, curY + 3, photoWidth, 3, 'F');
+        doc.rect(colEntreeX, curY + 2, photoWidth, 4, 'F');
         doc.setTextColor(255, 255, 255);
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(8);
-        doc.text("PHOTO : PRÉLEVEUR ENTRÉE (Eaux Brutes)", colEntreeX + 4, curY + 4.2);
+        doc.text("PHOTO PRÉLEVEUR ENTRÉE", colEntreeX + 3, curY + 4.3);
 
-        const imgAreaX = colEntreeX + 2;
-        const imgAreaY = curY + 7.5;
-        const maxImgW = photoWidth - 4; // 86mm
-        const maxImgH = photoHeight - 15; // 77mm
+        const imgAreaEntreeX = colEntreeX + 2;
+        const imgAreaEntreeY = curY + 8;
+        const maxImgW = photoWidth - 4;
+        const maxImgH = photoHeight - 16;
 
         if (entreeImg) {
           let renderW = maxImgW;
@@ -1414,12 +1277,12 @@
             renderH = maxImgH;
             renderW = renderH * entreeImg.ratio;
           }
-          const posX = imgAreaX + (maxImgW - renderW) / 2;
-          const posY = imgAreaY + (maxImgH - renderH) / 2;
+          const posX = imgAreaEntreeX + (maxImgW - renderW) / 2;
+          const posY = imgAreaEntreeY + (maxImgH - renderH) / 2;
 
           doc.setDrawColor(226, 232, 240);
           doc.setFillColor(241, 245, 249);
-          doc.rect(imgAreaX, imgAreaY, maxImgW, maxImgH, 'F');
+          doc.rect(imgAreaEntreeX, imgAreaEntreeY, maxImgW, maxImgH, 'F');
 
           doc.addImage(entreeImg.canvas, 'JPEG', posX, posY, renderW, renderH, undefined, 'FAST');
           doc.setDrawColor(203, 213, 225);
@@ -1438,20 +1301,21 @@
           doc.text("Aucune photo capturée", colEntreeX + photoWidth / 2, curY + 45, { align: 'center' });
         }
 
-        // Cadre Photo Sortie
-        doc.setDrawColor(167, 243, 208);
-        doc.setFillColor(250, 250, 250);
+        // Cadre Sortie
+        doc.setFillColor(255, 255, 255);
+        doc.setDrawColor(203, 213, 225);
         doc.roundedRect(colSortieX, curY, photoWidth, photoHeight, 2, 2, 'FD');
+
         doc.setFillColor(sortieColor[0], sortieColor[1], sortieColor[2]);
         doc.roundedRect(colSortieX, curY, photoWidth, 6, 2, 2, 'F');
-        doc.rect(colSortieX, curY + 3, photoWidth, 3, 'F');
+        doc.rect(colSortieX, curY + 2, photoWidth, 4, 'F');
         doc.setTextColor(255, 255, 255);
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(8);
-        doc.text("PHOTO : PRÉLEVEUR SORTIE (Rejet Traité)", colSortieX + 4, curY + 4.2);
+        doc.text("PHOTO PRÉLEVEUR SORTIE", colSortieX + 3, curY + 4.3);
 
         const imgAreaSortieX = colSortieX + 2;
-        const imgAreaSortieY = curY + 7.5;
+        const imgAreaSortieY = curY + 8;
 
         if (sortieImg) {
           let renderW = maxImgW;
@@ -1484,13 +1348,13 @@
           doc.text("Aucune photo capturée", colSortieX + photoWidth / 2, curY + 45, { align: 'center' });
         }
 
-        curY += photoHeight + 5;
+        curY += photoHeight + 4;
 
         // Observations si existantes
         if (observations.value.trim()) {
           doc.setFillColor(254, 252, 232);
           doc.setDrawColor(254, 240, 138);
-          doc.roundedRect(margin, curY, contentWidth, 14, 1.5, 1.5, 'FD');
+          doc.roundedRect(margin, curY, contentWidth, 13, 1.5, 1.5, 'FD');
           doc.setTextColor(146, 64, 14);
           doc.setFont('helvetica', 'bold');
           doc.setFontSize(7.5);
@@ -1500,23 +1364,19 @@
           doc.setTextColor(50, 50, 50);
           const splitObs = doc.splitTextToSize(observations.value.trim(), contentWidth - 8);
           doc.text(splitObs.slice(0, 2), margin + 3, curY + 9);
-          curY += 16;
-        } else {
-          curY += 2;
         }
 
-        // Pied de page légal et signature requise : "Créé par Laurent Juillien"
-        const footerY = pageHeight - 14;
+        // Pied de page officiel avec mention obligatoire : "Créé par Laurent Juillien"
+        const footerY = pageHeight - 12;
         doc.setDrawColor(226, 232, 240);
-        doc.line(margin, footerY - 3, pageWidth - margin, footerY - 3);
+        doc.line(margin, footerY - 2.5, pageWidth - margin, footerY - 2.5);
 
         doc.setFont('helvetica', 'normal');
         doc.setFontSize(7);
         doc.setTextColor(muted[0], muted[1], muted[2]);
         doc.text("Transmission réglementaire : Bilan d'autosurveillance STEP 24h", margin, footerY);
-        doc.text("Fiche d'autosurveillance certifiée conforme — Prélèvements 24 heures", margin, footerY + 3.5);
+        doc.text("Fiche certifiée conforme — Prélèvements 24h avec mesures et photos horodatées", margin, footerY + 3.5);
 
-        // Mention obligatoire dans le rapport
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(8.5);
         doc.setTextColor(primary[0], primary[1], primary[2]);
@@ -1524,83 +1384,14 @@
 
         const blob = doc.output('blob');
         const dataUri = doc.output('datauristring');
-        const base64 = dataUri.includes(',') ? dataUri.split(',')[1] : dataUri;
         const cleanName = nomStep.value.trim().replace(/[^a-zA-Z0-9_-]/g, '_') || 'STEP';
         const cleanDate = dateAutosurveillance.value.replace(/-/g, '');
         const fileName = `Bilan_Autosurveillance_${cleanName}_${cleanDate}.pdf`;
 
-        return { blob, base64, dataUri, fileName };
+        return { blob, dataUri, fileName };
       }
 
-      // Configuration EmailJS
-      const EMAILJS_STORAGE_KEY = 'step_emailjs_config_v1';
-      let emailConfig = {
-        serviceId: '',
-        templateId: '',
-        publicKey: '',
-        autoSend: true
-      };
-
-      try {
-        const savedCfg = localStorage.getItem(EMAILJS_STORAGE_KEY);
-        if (savedCfg) emailConfig = JSON.parse(savedCfg);
-      } catch (e) {
-        console.warn(e);
-      }
-
-      function updateEmailJsIndicator() {
-        const dot = document.getElementById('headerEmailJsDot');
-        if (dot) {
-          const isConfigured = Boolean(emailConfig.serviceId && emailConfig.templateId && emailConfig.publicKey);
-          dot.className = `w-2 h-2 rounded-full ${isConfigured ? 'bg-emerald-400' : 'bg-amber-400'}`;
-        }
-      }
-      updateEmailJsIndicator();
-
-      // Gestion Modale Paramètres
-      const btnSettings = document.getElementById('btnSettings');
-      const settingsModal = document.getElementById('settingsModal');
-      const btnCloseSettings = document.getElementById('btnCloseSettings');
-      const btnCancelSettings = document.getElementById('btnCancelSettings');
-      const settingsForm = document.getElementById('settingsForm');
-      const cfgServiceId = document.getElementById('cfgServiceId');
-      const cfgTemplateId = document.getElementById('cfgTemplateId');
-      const cfgPublicKey = document.getElementById('cfgPublicKey');
-      const cfgAutoSend = document.getElementById('cfgAutoSend');
-      const settingsToast = document.getElementById('settingsToast');
-
-      btnSettings.addEventListener('click', function() {
-        cfgServiceId.value = emailConfig.serviceId || '';
-        cfgTemplateId.value = emailConfig.templateId || '';
-        cfgPublicKey.value = emailConfig.publicKey || '';
-        cfgAutoSend.checked = emailConfig.autoSend !== false;
-        settingsToast.classList.add('hidden');
-        settingsModal.classList.remove('hidden');
-      });
-
-      function closeSettings() {
-        settingsModal.classList.add('hidden');
-      }
-      btnCloseSettings.addEventListener('click', closeSettings);
-      btnCancelSettings.addEventListener('click', closeSettings);
-
-      settingsForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        emailConfig = {
-          serviceId: cfgServiceId.value.trim(),
-          templateId: cfgTemplateId.value.trim(),
-          publicKey: cfgPublicKey.value.trim(),
-          autoSend: cfgAutoSend.checked
-        };
-        try {
-          localStorage.setItem(EMAILJS_STORAGE_KEY, JSON.stringify(emailConfig));
-        } catch (e) { console.warn(e); }
-        updateEmailJsIndicator();
-        settingsToast.classList.remove('hidden');
-        setTimeout(closeSettings, 1000);
-      });
-
-      // Téléchargement direct
+      // Téléchargement direct du fichier PDF
       function downloadFile(blob, fileName) {
         const link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
@@ -1611,7 +1402,95 @@
         setTimeout(() => URL.revokeObjectURL(link.href), 10000);
       }
 
-      // Soumission formulaire
+      // Génération de la synthèse texte formatée pour WhatsApp et Email
+      function generateReportSummary() {
+        const hasDebits = entreeDebit.value && sortieDebit.value && !isNaN(Number(entreeDebit.value)) && !isNaN(Number(sortieDebit.value)) && Number(entreeDebit.value) > 0;
+        const ratio = hasDebits ? ((Number(sortieDebit.value) / Number(entreeDebit.value)) * 100).toFixed(1) : null;
+        const delta = hasDebits ? (Number(sortieDebit.value) - Number(entreeDebit.value)).toFixed(1) : null;
+
+        const lines = [
+          '📋 *BILAN D\'AUTOSURVEILLANCE STEP 24H*',
+          '--------------------------------------',
+          '🏢 *Station* : ' + (nomStep.value || 'Non précisée'),
+          '📅 *Date du bilan* : ' + (dateAutosurveillance.value || 'Non précisée')
+        ];
+        if (technicienNom.value) lines.push('👷 *Technicien* : ' + technicienNom.value);
+        if (meteo.value) lines.push('⛅ *Météo* : ' + meteo.value);
+
+        lines.push('');
+        lines.push('🔹 *ENTRÉE (Eaux Brutes)*');
+        lines.push('  • Relève : ' + (entreeHeure.value || '-') + ' (' + (entreeDate.value || '-') + ')');
+        lines.push('  • Température : ' + (entreeTemperature.value ? entreeTemperature.value + ' °C' : '-'));
+        lines.push('  • Débit 24h : ' + (entreeDebit.value ? Number(entreeDebit.value).toLocaleString('fr-FR') + ' m³' : '-'));
+        lines.push('  • Photo préleveur : ' + (state.entreePhoto ? '✓ Capturée' : 'Non jointe'));
+
+        lines.push('');
+        lines.push('🔹 *SORTIE (Eaux Traitées / Rejet)*');
+        lines.push('  • Relève : ' + (sortieHeure.value || '-') + ' (' + (sortieDate.value || '-') + ')');
+        lines.push('  • Température : ' + (sortieTemperature.value ? sortieTemperature.value + ' °C' : '-'));
+        lines.push('  • Débit 24h : ' + (sortieDebit.value ? Number(sortieDebit.value).toLocaleString('fr-FR') + ' m³' : '-'));
+        lines.push('  • Photo préleveur : ' + (state.sortiePhoto ? '✓ Capturée' : 'Non jointe'));
+
+        if (ratio) {
+          lines.push('');
+          lines.push('📊 *SYNTHÈSE VOLUMÉTRIQUE*');
+          lines.push('  • Ratio Sortie / Entrée : ' + ratio + ' %');
+          if (delta) lines.push('  • Écart : ' + (Number(delta) > 0 ? '+' + delta : delta) + ' m³');
+        }
+
+        if (observations.value.trim()) {
+          lines.push('');
+          lines.push('📝 *Remarques terrain* :');
+          lines.push(observations.value.trim());
+        }
+
+        lines.push('');
+        lines.push('📄 *Rapport PDF officiel avec photos* :');
+        lines.push('Fichier généré : ' + (state.lastFileName || 'Bilan_Autosurveillance.pdf'));
+
+        return lines.join('\n');
+      }
+
+      // Fonction d'envoi vers WhatsApp
+      async function triggerWhatsAppShare() {
+        const text = generateReportSummary();
+        // Essai Web Share API avec fichier PDF si supporté (sur smartphone Android/iOS)
+        if (state.lastBlob && navigator.share && navigator.canShare) {
+          try {
+            const file = new File([state.lastBlob], state.lastFileName || 'Bilan_Autosurveillance.pdf', { type: 'application/pdf' });
+            if (navigator.canShare({ files: [file] })) {
+              await navigator.share({
+                title: 'Bilan Autosurveillance STEP - ' + nomStep.value,
+                text: text,
+                files: [file]
+              });
+              return;
+            }
+          } catch (e) {
+            if (e.name === 'AbortError') return;
+          }
+        }
+        // Fallback standard wa.me
+        const url = 'https://wa.me/?text=' + encodeURIComponent(text);
+        window.open(url, '_blank', 'noopener,noreferrer');
+      }
+
+      // Fonction d'envoi par Email (mailto:)
+      function triggerEmailSend() {
+        const recipient = (destinataireEmail ? destinataireEmail.value : '').trim();
+        const subject = '[Autosurveillance STEP] Bilan 24h - ' + (nomStep.value || 'STEP') + ' (' + (dateAutosurveillance.value || '') + ')';
+        const body = 'Bonjour,\n\nVeuillez trouver ci-dessous le bilan d\'autosurveillance 24h pour la station ' + nomStep.value + '.\nLe document PDF officiel haute définition avec photos certifiées (' + (state.lastFileName || 'rapport.pdf') + ') est généré et prêt en pièce jointe.\n\n' + generateReportSummary() + '\n\nCordialement,\n' + (technicienNom.value || 'L\'exploitant de la station');
+        
+        const mailtoUrl = 'mailto:' + encodeURIComponent(recipient) + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        const a = document.createElement('a');
+        a.href = mailtoUrl;
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => document.body.removeChild(a), 150);
+      }
+
+      // Soumission du formulaire
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
@@ -1633,7 +1512,13 @@
           // 1. Télécharger directement le PDF sur l'appareil
           downloadFile(pdfRes.blob, pdfRes.fileName);
 
-          // 2. Préparer et afficher la modale récapitulative
+          // 2. Mettre à jour le panneau d'action de la Section 4
+          if (section4SharePanel && section4FileName) {
+            section4FileName.textContent = pdfRes.fileName;
+            section4SharePanel.classList.remove('hidden');
+          }
+
+          // 3. Ouvrir la modale d'aperçu et de partage
           modalFileName.textContent = pdfRes.fileName;
           const modalPdfFrame = document.getElementById('modalPdfFrame');
           if (modalPdfFrame) {
@@ -1652,60 +1537,23 @@
         }
       });
 
-      // Génération de la synthèse texte pour partage
-      function generateReportSummary() {
-        const hasDebits = entreeDebit.value && sortieDebit.value && !isNaN(Number(entreeDebit.value)) && !isNaN(Number(sortieDebit.value)) && Number(entreeDebit.value) > 0;
-        const ratio = hasDebits ? ((Number(sortieDebit.value) / Number(entreeDebit.value)) * 100).toFixed(1) : null;
-        const delta = hasDebits ? (Number(sortieDebit.value) - Number(entreeDebit.value)).toFixed(1) : null;
-
-        const lines = [
-          '📋 *BILAN D\'AUTOSURVEILLANCE STEP 24H*',
-          '--------------------------------------',
-          '🏢 *Station* : ' + (nomStep.value || 'Non précisée'),
-          '📅 *Date de prélèvement* : ' + (dateAutosurveillance.value || 'Non précisée')
-        ];
-        if (technicienNom.value) lines.push('👷 *Technicien* : ' + technicienNom.value);
-        if (meteo.value) lines.push('⛅ *Météo* : ' + meteo.value);
-
-        lines.push('');
-        lines.push('🔹 *ENTRÉE (Eaux Brutes)*');
-        lines.push('  • Relève : ' + (entreeHeure.value || '-') + ' (' + (entreeDate.value || '-') + ')');
-        lines.push('  • Température : ' + (entreeTemperature.value ? entreeTemperature.value + ' °C' : '-'));
-        lines.push('  • Débit 24h : ' + (entreeDebit.value ? entreeDebit.value + ' m³' : '-'));
-        lines.push('  • Photo : ' + (state.entreePhoto ? '✓ Enregistrée' : 'Non jointe'));
-
-        lines.push('');
-        lines.push('🔹 *SORTIE (Eaux Traitées)*');
-        lines.push('  • Relève : ' + (sortieHeure.value || '-') + ' (' + (sortieDate.value || '-') + ')');
-        lines.push('  • Température : ' + (sortieTemperature.value ? sortieTemperature.value + ' °C' : '-'));
-        lines.push('  • Débit 24h : ' + (sortieDebit.value ? sortieDebit.value + ' m³' : '-'));
-        lines.push('  • Photo : ' + (state.sortiePhoto ? '✓ Enregistrée' : 'Non jointe'));
-
-        if (ratio) {
-          lines.push('');
-          lines.push('📊 *SYNTHÈSE VOLUMÉTRIQUE*');
-          lines.push('  • Ratio Sortie / Entrée : ' + ratio + ' %');
-          if (delta) lines.push('  • Écart : ' + (Number(delta) > 0 ? '+' + delta : delta) + ' m³');
-        }
-
-        if (observations.value.trim()) {
-          lines.push('');
-          lines.push('📝 *Remarques terrain* :');
-          lines.push(observations.value.trim());
-        }
-
-        lines.push('');
-        lines.push('📄 *Document PDF officiel* :');
-        lines.push('Le rapport avec photos certifiées (' + (state.lastFileName || 'rapport.pdf') + ') a été généré et se trouve en pièce jointe.');
-
-        return lines.join('\n');
+      // Actions dans la Section 4
+      if (section4BtnWhatsApp) {
+        section4BtnWhatsApp.addEventListener('click', triggerWhatsAppShare);
+      }
+      if (section4BtnEmail) {
+        section4BtnEmail.addEventListener('click', triggerEmailSend);
+      }
+      if (section4BtnDownload) {
+        section4BtnDownload.addEventListener('click', function() {
+          if (state.lastBlob) downloadFile(state.lastBlob, state.lastFileName);
+        });
       }
 
-      // Actions modale
+      // Actions dans la Modale
       modalBtnClose.addEventListener('click', function() {
         successModal.classList.add('hidden');
       });
-      const modalBtnBottomClose = document.getElementById('modalBtnBottomClose');
       if (modalBtnBottomClose) {
         modalBtnBottomClose.addEventListener('click', function() {
           successModal.classList.add('hidden');
@@ -1714,50 +1562,17 @@
       modalBtnDownload.addEventListener('click', function() {
         if (state.lastBlob) downloadFile(state.lastBlob, state.lastFileName);
       });
+      modalBtnWhatsApp.addEventListener('click', triggerWhatsAppShare);
+      modalBtnEmail.addEventListener('click', triggerEmailSend);
 
-      // Partage WhatsApp
-      const modalBtnWhatsApp = document.getElementById('modalBtnWhatsApp');
-      if (modalBtnWhatsApp) {
-        modalBtnWhatsApp.addEventListener('click', async function() {
-          const text = generateReportSummary();
-          if (state.lastBlob && navigator.share && navigator.canShare) {
-            try {
-              const file = new File([state.lastBlob], state.lastFileName || 'Bilan_Autosurveillance.pdf', { type: 'application/pdf' });
-              if (navigator.canShare({ files: [file] })) {
-                await navigator.share({
-                  title: 'Bilan Autosurveillance STEP - ' + nomStep.value,
-                  text: text,
-                  files: [file]
-                });
-                return;
-              }
-            } catch (e) {
-              if (e.name === 'AbortError') return;
-            }
-          }
-          window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(text), '_blank', 'noopener,noreferrer');
-        });
+      if (modalBtnFooterWhatsApp) {
+        modalBtnFooterWhatsApp.addEventListener('click', triggerWhatsAppShare);
       }
-
-      // Envoi par E-mail
-      const modalBtnEmail = document.getElementById('modalBtnEmail');
-      if (modalBtnEmail) {
-        modalBtnEmail.addEventListener('click', function() {
-          const recipient = (destinataireEmail ? destinataireEmail.value : '').trim();
-          const subject = '[Autosurveillance STEP] Bilan 24h - ' + nomStep.value + ' (' + dateAutosurveillance.value + ')';
-          const body = 'Bonjour,\n\nVeuillez trouver ci-dessous le bilan d\'autosurveillance 24h pour la station ' + nomStep.value + '.\nLe rapport PDF officiel avec photos (' + (state.lastFileName || 'rapport.pdf') + ') a été généré et se trouve en pièce jointe.\n\n' + generateReportSummary() + '\n\nCordialement,';
-          const a = document.createElement('a');
-          a.href = 'mailto:' + encodeURIComponent(recipient) + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-          a.style.display = 'none';
-          document.body.appendChild(a);
-          a.click();
-          setTimeout(() => document.body.removeChild(a), 100);
-        });
+      if (modalBtnFooterEmail) {
+        modalBtnFooterEmail.addEventListener('click', triggerEmailSend);
       }
 
       // Copier la synthèse
-      const modalBtnCopy = document.getElementById('modalBtnCopy');
-      const modalCopyText = document.getElementById('modalCopyText');
       if (modalBtnCopy) {
         modalBtnCopy.addEventListener('click', async function() {
           const text = generateReportSummary();
@@ -1773,16 +1588,16 @@
           }
           if (modalCopyText) {
             modalCopyText.textContent = 'Copié !';
-            setTimeout(() => { modalCopyText.textContent = 'Copier texte'; }, 2000);
+            setTimeout(() => { modalCopyText.textContent = 'Copier la synthèse'; }, 2000);
           }
         });
       }
 
-      // Bouton Exemple rapide
+      // Bouton Exemple rapide de démonstration
       btnExemple.addEventListener('click', function() {
         nomStep.value = "STEP Val de Loire Métropole (45 000 EH)";
         dateAutosurveillance.value = today;
-        technicienNom.value = "L. Juillien";
+        technicienNom.value = "Laurent Juillien";
         meteo.value = "Temps sec";
         if (destinataireEmail) destinataireEmail.value = "autosurveillance@grand-bassin.fr";
 
@@ -1798,27 +1613,27 @@
 
         observations.value = "Préleveurs réfrigérés conformes. Absence de colmatage sur les crépines d'aspiration. Échantillons composites clairs en sortie.";
 
-        // Créer des photos réalistes générées par canvas (préleveur d'eaux usées et flaconnage)
-        createSampleImage('PRELEVEUR ENTRÉE - AS56', '#0369a1').then(dataUrl => {
+        createSampleImage('PRÉLEVEUR ENTRÉE - EAUX BRUTES', '#0369a1').then(dataUrl => {
           state.entreePhoto = dataUrl;
           entreePreviewImg.src = dataUrl;
           entreePlaceholder.classList.add('hidden');
           entreePreviewContainer.classList.remove('hidden');
+          clearError('entreePhoto');
         });
 
-        createSampleImage('PRELEVEUR SORTIE - REJET', '#059669').then(dataUrl => {
+        createSampleImage('PRÉLEVEUR SORTIE - REJET TRAITÉ', '#059669').then(dataUrl => {
           state.sortiePhoto = dataUrl;
           sortiePreviewImg.src = dataUrl;
           sortiePlaceholder.classList.add('hidden');
           sortiePreviewContainer.classList.remove('hidden');
+          clearError('sortiePhoto');
         });
 
-        // Nettoyer les erreurs
         ['nomStep', 'dateAutosurveillance', 'entreeDate', 'entreeHeure', 'entreeTemperature', 'entreeDebit', 'sortieDate', 'sortieHeure', 'sortieTemperature', 'sortieDebit', 'entreePhoto', 'sortiePhoto'].forEach(clearError);
         validationBanner.classList.add('hidden');
       });
 
-      // Fonction pour générer une image de test réaliste
+      // Générateur d'image d'échantillon pour test
       function createSampleImage(title, accentColor) {
         return new Promise(resolve => {
           const c = document.createElement('canvas');
@@ -1826,11 +1641,9 @@
           c.height = 480;
           const ctx = c.getContext('2d');
           
-          // Fond technique STEP
           ctx.fillStyle = '#1e293b';
           ctx.fillRect(0, 0, 640, 480);
           
-          // Grille
           ctx.strokeStyle = '#334155';
           ctx.lineWidth = 1;
           for (let x = 0; x < 640; x += 40) {
@@ -1840,11 +1653,9 @@
             ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(640, y); ctx.stroke();
           }
 
-          // Encart équipement
           ctx.fillStyle = accentColor;
           ctx.fillRect(120, 90, 400, 300);
 
-          // Écran digital du préleveur
           ctx.fillStyle = '#0f172a';
           ctx.fillRect(160, 130, 320, 140);
 
@@ -1853,20 +1664,19 @@
           ctx.fillText("PRELEVEUR AUTOMATIQUE", 180, 170);
           ctx.fillStyle = '#4ade80';
           ctx.font = 'bold 24px monospace';
-          ctx.fillText("TEMP: +3.8°C [OK]", 180, 210);
+          ctx.fillText("TEMP: +3.8°C [CONFORME]", 180, 210);
           ctx.fillStyle = '#fde047';
           ctx.font = 'bold 16px monospace';
           ctx.fillText("CYCLES 24H : 24/24 FLACONS", 180, 245);
 
-          // Texte de repère terrain
           ctx.fillStyle = '#ffffff';
-          ctx.font = 'bold 22px sans-serif';
+          ctx.font = 'bold 20px sans-serif';
           ctx.textAlign = 'center';
           ctx.fillText(title, 320, 350);
 
           ctx.fillStyle = '#94a3b8';
           ctx.font = '14px sans-serif';
-          ctx.fillText("Horodatage GPS Terrain : " + new Date().toLocaleString('fr-FR'), 320, 440);
+          ctx.fillText("Contrôle Terrain : " + new Date().toLocaleString('fr-FR'), 320, 440);
 
           resolve(c.toDataURL('image/jpeg', 0.85));
         });
@@ -1878,10 +1688,13 @@
           form.reset();
           state.entreePhoto = null;
           state.sortiePhoto = null;
+          state.lastBlob = null;
+          state.lastFileName = '';
           entreePreviewContainer.classList.add('hidden');
           entreePlaceholder.classList.remove('hidden');
           sortiePreviewContainer.classList.add('hidden');
           sortiePlaceholder.classList.remove('hidden');
+          if (section4SharePanel) section4SharePanel.classList.add('hidden');
           dateAutosurveillance.value = today;
           entreeDate.value = today;
           sortieDate.value = today;
